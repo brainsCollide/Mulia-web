@@ -11,7 +11,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <section id="about-section" className="bg-gray-100 py-16">
+    <section id="about-section" className="bg-gray-100 py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Title */}
         <h2 className="text-4xl font-bold text-center text-gray-800">About Us</h2>
@@ -33,7 +33,7 @@ const AboutUs = () => {
           {/* Text Content */}
           <div>
             <h3 className="text-2xl font-semibold text-gray-800">Who We Are</h3>
-            <p className="mt-4 text-gray-600">
+            <p className="mt-4 text-gray-600 text-justify">
               Established in 2010, PT. Mulia Solusindo specializes in providing
               instrumentation, electrical, and mechanical solutions for energy
               and industrial sectors. With offices in Balikpapan, Makassar, and

@@ -20,7 +20,7 @@ const OurClients = () => {
   ];
 
   return (
-    <section id="our-clients" className="bg-gray-100 py-16">
+    <section id="our-clients" className="bg-gray-100 py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-center text-gray-800">Our Clients</h2>
         <p className="mt-4 text-lg text-center text-gray-600">

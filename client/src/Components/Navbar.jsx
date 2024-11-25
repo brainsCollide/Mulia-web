@@ -3,28 +3,20 @@ import { Link as ScrollLink } from "react-scroll";
 import MsLogo from "../assets/mslogo.jpeg";
 
 const Navbar = () => {
-  const [isFlyoutOpen, setIsFlyoutOpen] = useState(false); // For flyout toggle
   const [isMenuOpen, setIsMenuOpen] = useState(false); // For mobile menu toggle
 
   const items = [
     { name: "Home", to: "hero-section", isScroll: true },
     { name: "About Us", to: "about-section", isScroll: true },
-    { name: "Products and Services", to: "service-section ", hasFlyout: true },
-    { name: "Our Clients", link: "#clients" }, // External link
-    { name: "Contact Us", to: "service-section", isScroll: true },
+    { name: "Products and Services", to: "service-section", hasFlyout: true },
+    { name: "Our Clients", to: "our-clients", isScroll: true },
+    { name: "Contact Us", to: "contact-us", isScroll: true },
     { name: "Careers", link: "#careers" }, // External link
   ];
 
-  const flyouts = [
-    { name: "Services", link: "#services" },
-    { name: "Yokogawa", link: "#yokogawa" },
-    { name: "Woodward", link: "#woodward" },
-  ];
-
   return (
-    <nav className="bg-slate-100 text-black shadow">
+    <nav className="sticky top-0 z-50 bg-slate-100 text-black shadow">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Navbar Container */}
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -37,53 +29,7 @@ const Navbar = () => {
           <div className="hidden md:flex flex-grow justify-center space-x-8 items-center">
             {items.map((item, index) => (
               <div key={index} className="relative">
-                {item.hasFlyout ? (
-                  <>
-                    {/* Flyout Toggle Button */}
-                    <button
-                      onClick={() => setIsFlyoutOpen(!isFlyoutOpen)}
-                      className="inline-flex items-center gap-x-1 text-sm font-semibold text-gray-900"
-                      aria-expanded={isFlyoutOpen}
-                    >
-                      {item.name}
-                      <svg
-                        className="w-5 h-5"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </button>
-
-                    {/* Flyout Menu */}
-                    {isFlyoutOpen && (
-                      <div
-                        className="absolute left-1/2 z-10 mt-5 w-screen max-w-md -translate-x-1/2 px-4"
-                        onMouseLeave={() => setIsFlyoutOpen(false)}
-                      >
-                        <div className="overflow-hidden rounded-3xl bg-white text-sm shadow-lg ring-1 ring-gray-900/5">
-                          <div className="p-4">
-                            {flyouts.map((flyout, flyoutIndex) => (
-                              <div
-                                key={flyoutIndex}
-                                className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50"
-                              >
-                                <a href={flyout.link} className="font-semibold text-gray-900">
-                                  {flyout.name}
-                                </a>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </>
-                ) : item.isScroll ? (
+                {item.isScroll ? (
                   <ScrollLink
                     to={item.to}
                     smooth={true}
@@ -136,6 +82,46 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+
+        {/* Overlay and Mobile Menu */}
+        {isMenuOpen && (
+          <>
+            {/* Black Transparent Overlay */}
+            <div
+              className="fixed inset-0 bg-black/50 z-40"
+              onClick={() => setIsMenuOpen(false)} // Close menu when overlay is clicked
+            ></div>
+
+            {/* Mobile Menu */}
+            <div className="fixed top-16 left-0 w-full bg-white z-50 p-4">
+              <div className="space-y-1">
+                {items.map((item, index) => (
+                  <div key={index}>
+                    {item.isScroll ? (
+                      <ScrollLink
+                        to={item.to}
+                        smooth={true}
+                        duration={500}
+                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-300"
+                        onClick={() => setIsMenuOpen(false)} // Close menu on click
+                      >
+                        {item.name}
+                      </ScrollLink>
+                    ) : (
+                      <a
+                        href={item.link}
+                        className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-300"
+                        onClick={() => setIsMenuOpen(false)} // Close menu on click
+                      >
+                        {item.name}
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </nav>
   );

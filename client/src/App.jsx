@@ -4,6 +4,7 @@ import AboutUs from './Pages/AboutUs'
 import ProductServicesPage from './Pages/ProductServicePage'
 import Client from './Pages/ClientsPage'
 import ContactUs from './Pages/ContactUsPage'
+import Footer from './Components/Footer'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <ProductServicesPage />
         <Client />
         <ContactUs />
+        <Footer />
       </div>
     </>
   )

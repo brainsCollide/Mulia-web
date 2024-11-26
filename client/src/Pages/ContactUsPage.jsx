@@ -1,12 +1,12 @@
 import React from "react";
 
-const ContactUs = () => {
+const ContactUsPage = () => {
   return (
     <section id="contact-us" className="bg-gray-100 py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-center text-gray-800">Contact Us</h2>
         <p className="mt-4 text-lg text-center text-gray-600">
-          Reach out to us for inquiries, collaborations, or to learn more about our services.
+          We'd love to hear from you! Reach out to us for inquiries, collaborations, or to learn more about our services.
         </p>
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -18,14 +18,17 @@ const ContactUs = () => {
             </p>
             <ul className="mt-4 space-y-4 text-gray-700">
               <li>
-                <strong>Address:</strong> JL. Mulawarman, No. 124 RT. 022, Sepinggan, Sepinggan,
+                <strong>Address:</strong> <br />
+                JL. Mulawarman, No. 124 RT. 022, Sepinggan, Sepinggan,
                 Kecamatan Balikpapan Selatan, Kota Balikpapan, Kalimantan Timur 76115, Indonesia
               </li>
               <li>
-                <strong>Phone:</strong> +62 123 456 7890
+                <strong>Phone:</strong> <br />
+                +62 123 456 7890
               </li>
               <li>
-                <strong>Email:</strong> info@muliasolusindo.com
+                <strong>Email:</strong> <br />
+                info@muliasolusindo.com
               </li>
             </ul>
           </div>
@@ -52,4 +55,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default ContactUsPage;
